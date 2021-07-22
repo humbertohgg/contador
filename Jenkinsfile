@@ -9,5 +9,15 @@ pipeline {
         echo "Hello beto"
       }
     }
+    stage('cat README') {
+      when {
+        brach "fix-*"
+      }
+      steps {
+        sh '''
+          cat README.md
+        '''
+      }
+    }
   }
 }
